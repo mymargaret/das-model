@@ -1,0 +1,52 @@
+live_loop :melody_background do
+  play (ring :a3, :a3, :c4, :a3, :c4, :a3,
+        :e3, :e3, :g3, :e3, :g3, :a3).tick, amp: 0.3
+  sleep 0.4
+end
+
+use_synth :piano
+live_loop :melody do
+  sleep 4.8
+  52.times do
+    play (ring :e3, :a3, :r, :a3, :a3, :bs3, :b3,
+          :a3, :b3, :r, :g3, :e3, :r,
+          
+          :e, :a, :r, :a, :a, :bs, :b,
+          :a, :b, :r, :g, :e, :r).tick, amp: 0.5
+    sleep 0.4
+  end
+  sleep 10000
+end
+
+use_synth :pretty_bell
+live_loop :melody2 do
+  sleep 38.8
+  64.times do
+    play (ring :e4, :c4, :a3, :c4, :e4, :c4, :e4,
+          :f4, :e4, :b3, :g3, :b3, :e4, :r, :d4, :r,
+          
+          :e4, :c4, :a3, :c4, :e4, :c4, :e4,
+          :f4, :e4, :b3, :g3, :b3, :e4, :r, :g4, :r).tick, amp: 0.5
+    sleep 0.4
+  end
+  sleep 10000
+end
+
+live_loop :tick do
+  sample :drum_bass_soft, amp: 0.5
+  sleep 0.8
+end
+
+
+use_synth :piano
+live_loop :premelody do
+  sleep 25.6
+  32.times do
+    play (ring :c3, :r, :r, :r, :b2, :r, :r, :a2, :g2,
+          :r, :r, :r, :r, :r, :r, :c3, :r, :r, :r, :b2, :r, :r,
+          :r, :e3, :r, :r, :r, :gs3, :r, :r, :a3, :b3).tick, attack: 1,  release: 2
+    sleep 0.4
+  end
+  sleep 10000
+end
+
